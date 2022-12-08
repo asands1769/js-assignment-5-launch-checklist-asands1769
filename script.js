@@ -1,6 +1,7 @@
 
 window.addEventListener("load", function() {
-
+    let list = document.getElementById("faultyItems");
+    list.style.visbility = "hidden"
     let form = document.querySelector("form");
     let listedPlanets;
    // Set listedPlanetsResponse equal to the value returned by calling myFetch()
@@ -17,7 +18,6 @@ window.addEventListener("load", function() {
     
     form.addEventListener("submit", function(event) { 
     event.preventDefault();
-    let list = document.getElementById("faultyItems");
     let pilotName = document.querySelector("input[name=pilotName]");
     let copilotName = document.querySelector("input[name=copilotName]");
     let fuelLevel = document.querySelector("input[name=fuelLevel]");

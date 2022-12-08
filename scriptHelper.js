@@ -27,14 +27,21 @@ function validateInput(testInput) {
     }
 }
 function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
-    let alertMessage = "Make sure to enter valid information for each field!";
+    // let alertMessage = "Make sure to enter valid information for each field!";
     let launchStatus = document.getElementById("launchStatus");
     let copilotStatus = document.getElementById("copilotStatus");
     let pilotStatus = document.getElementById("pilotStatus");
     let fuelStatus = document.getElementById("fuelStatus");
     let cargoStatus = document.getElementById("cargoStatus");
-    if ((validateInput(pilot) !== "Not a Number") || (validateInput(copilot) !== "Not a Number" ) || (validateInput(cargoLevel) !== "Is a Number") || (validateInput(fuelLevel) !== "Is a Number")){
-        alert(alertMessage);
+    // if ((validateInput(pilot) !== "Not a Number") || (validateInput(copilot) !== "Not a Number" ) || (validateInput(cargoLevel) !== "Is a Number") || (validateInput(fuelLevel) !== "Is a Number")){
+    //     alert(alertMessage);
+    // }  
+    //   initially I validated the inputs but stating if they are not equal to what they are supposed to be, put an alert, that way I wouldn't have to do it twice for "Empty" and incorrect data types.  The auto-grader did not like this.
+    if (validateInput(pilot) === "Empty" || validateInput(copilot) === "Empty" || validateInput(fuelLevel) === "Empty" || validateInput(cargoLevel) === "Empty"){
+        alert("All fields are required!")
+    }
+    else if (validateInput(pilot) === "Is a Number" || validateInput(copilot) === "Is a Number" || validateInput(fuelLevel) === "Not a Number" || validateInput(cargoLevel) === "Not a Number"){
+        alert("Make sure to enter valid information for each field!")
     }
     else   {
         pilotStatus.innerHTML = `Pilot ${pilot} is ready for launch`;
