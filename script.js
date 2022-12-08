@@ -1,5 +1,6 @@
 window.addEventListener("load", function() {
- 
+    let list = document.getElementById("faultyItems");
+    list.style.visbility = "hidden"
     let form = document.querySelector("form");
     let listedPlanets;
    // Set listedPlanetsResponse equal to the value returned by calling myFetch()
@@ -13,8 +14,7 @@ window.addEventListener("load", function() {
     let chosenPlanet = pickPlanet(listedPlanets);
     addDestinationInfo(document, chosenPlanet.name, chosenPlanet.diameter, chosenPlanet.star, chosenPlanet.distance, chosenPlanet.moons, chosenPlanet.image)
 })
-    let list = document.getElementById("faultyItems");
-    list.style.visbility = "hidden"
+    
     form.addEventListener("submit", function(event) { 
     event.preventDefault();
     let pilotName = document.querySelector("input[name=pilotName]");
