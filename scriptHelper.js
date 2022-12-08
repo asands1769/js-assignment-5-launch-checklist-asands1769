@@ -38,10 +38,10 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
     // }  
     //   initially I validated the inputs but stating if they are not equal to what they are supposed to be, put an alert, that way I wouldn't have to do it twice for "Empty" and incorrect data types.  The auto-grader did not like this.
     if (validateInput(pilot) === "Empty" || validateInput(copilot) === "Empty" || validateInput(fuelLevel) === "Empty" || validateInput(cargoLevel) === "Empty"){
-        alert("All fields are required!")
+        window.alert("All fields are required!")
     }
     else if (validateInput(pilot) === "Is a Number" || validateInput(copilot) === "Is a Number" || validateInput(fuelLevel) === "Not a Number" || validateInput(cargoLevel) === "Not a Number"){
-        alert("Make sure to enter valid information for each field!")
+        window.alert("Make sure to enter valid information for each field!")
     }
     else   {
         pilotStatus.innerHTML = `Pilot ${pilot} is ready for launch`;
@@ -57,9 +57,9 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
         fuelStatus.innerHTML = "Fuel level high enough for launch"
     }
     if (cargoLevel > 10000){
-        launchStatus.innerHTML = "Shuttle not ready for launch"
+        launchStatus.innerHTML = "Shuttle Not Ready for launch"
         launchStatus.style.color = "red"
-        cargoStatus.innerHTML = "There is too much mass for the shuttle to take off"
+        cargoStatus.innerHTML = "Cargo mass too heavy for launch"
         list.style.visibility = "visible"
     }
     else {
@@ -68,7 +68,7 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
 
     if (fuelLevel >= 10000 && cargoLevel <= 10000){
         fuelStatus.innerHTML = "Fuel level high enough for launch"
-        cargoStatus.innerHTML = "Cargo mass is low enough for launch"
+        cargoStatus.innerHTML = "Cargo mass low enough for launch"
         launchStatus.innerHTML = "Shuttle is ready for launch"
         launchStatus.style.color = "green"
         list.style.visibility = "visible"
