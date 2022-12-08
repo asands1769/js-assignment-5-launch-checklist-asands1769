@@ -1,56 +1,27 @@
-// Write your JavaScript code here!
-import { formSubmission } from "./scriptHelper";
-import { validateInput } from "./scriptHelper";
-
-const { pickPlanet, formSubmission } = require("./scriptHelper");
 
 window.addEventListener("load", function() {
+
     let form = document.querySelector("form");
-    let button = document.getElementById("formSubmit")
-    let pilotName = document.getElementById("pilotName");
-    let copilotName = document.getElementById("copilotName");
-    let fuelLevel = document.getElementById("fuelLevel");
-    let cargoMass = document.getElementById("cargoMass");
-
-    form.addEventListener("submit", function(event) { 
-        formSubmission(document, list, pilotName, copilotName, fuelLevel, cargoMass)
-    });
-    //     if (pilotName.value == "" ){
-    //         alert("All fields are required!");
-    //     };
-    //     if (isNaN((pilotName.value)) === false){
-    //         alert("Please enter valid pilot name.");
-    //     };
-    //     if (copilotName.value == "" ){
-    //         alert("All fields are required!");
-    //         }
-    //     if (isNaN((copilotName.value)) === false){
-    //         alert("Please enter valid co-pilot name.");
-    //         };
-    //     if (fuelLevel.value == "" ){
-    //         alert("All fields are required!");
-    //         }
-    //     if (isNaN((fuelLevel.value)) === true){
-    //         alert("Please enter valid fuel level.");
-    //         };
-    //     if (cargoMass.value == "" ){
-    //         alert("All fields are required!");
-    //         }
-    //     if (isNaN((cargoMass.value)) === true){
-    //         alert("Please enter valid cargoMass.");
-    //         };
-
-
-   let listedPlanets;
+    let listedPlanets;
    // Set listedPlanetsResponse equal to the value returned by calling myFetch()
-   let listedPlanetsResponse = myFetch();
-   listedPlanetsResponse.then(function (result) {
+    let listedPlanetsResponse = myFetch();
+    listedPlanetsResponse.then(function (result) {
        listedPlanets = result;
        console.log(listedPlanets);
-   }).then(function () {
+    }).then(function () {
        console.log(listedPlanets);
        // Below this comment call the appropriate helper functions to pick a planet fom the list of planets and add that information to your destination.
-   })
-   pickPlanet(listedPlanets)
-   
+    let chosenPlanet = pickPlanet(listedPlanets);
+    addDestinationInfo(document, chosenPlanet.name, chosenPlanet.diameter, chosenPlanet.star, chosenPlanet.distance, chosenPlanet.moons, chosenPlanet.image)
+})
+    
+    form.addEventListener("submit", function(event) { 
+    event.preventDefault();
+    let list = document.getElementById("faultyItems");
+    let pilotName = document.querySelector("input[name=pilotName]");
+    let copilotName = document.querySelector("input[name=copilotName]");
+    let fuelLevel = document.querySelector("input[name=fuelLevel]");
+    let cargoMass = document.querySelector("input[name=cargoMass]");
+    formSubmission(document, list, pilotName.value, copilotName.value, fuelLevel.value, cargoMass.value);
+});
 });
