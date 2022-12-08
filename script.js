@@ -1,3 +1,4 @@
+import fetch from "node-fetch";
 window.addEventListener("load", function() {
  
     let form = document.querySelector("form");
