@@ -1,3 +1,4 @@
+
 window.addEventListener("load", function() {
     let list = document.getElementById("faultyItems");
     list.style.visbility = "hidden"
