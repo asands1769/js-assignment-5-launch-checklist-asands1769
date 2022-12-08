@@ -14,10 +14,10 @@ window.addEventListener("load", function() {
     let chosenPlanet = pickPlanet(listedPlanets);
     addDestinationInfo(document, chosenPlanet.name, chosenPlanet.diameter, chosenPlanet.star, chosenPlanet.distance, chosenPlanet.moons, chosenPlanet.image)
 })
-    
-    form.addEventListener("submit", function(event) { 
+        
     let list = document.getElementById("faultyItems");
-    list.style.visbility = "hidden"
+    list.style.visibility = "hidden";
+    form.addEventListener("submit", function(event) { 
     event.preventDefault();
     let pilotName = document.querySelector("input[name=pilotName]");
     let copilotName = document.querySelector("input[name=copilotName]");
